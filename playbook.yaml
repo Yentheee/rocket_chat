@@ -1,0 +1,8 @@
+---
+- name: Install Docker and Docker Compose on Rocky Linux
+  hosts: rocky_linux
+  become: true
+  roles:
+    - docker
+    - compose_up
+    - firewall
