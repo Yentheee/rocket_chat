@@ -1,18 +1,18 @@
-    - name: Create directory for Docker Compose project
-      file:
-        path: /root/rocketchat2
-        state: directory
-      become: true
+- name: Create directory for Docker Compose project
+  file:
+    path: /root/rocketchat
+    state: directory
+  become: true
 
-    - name: Copy docker-compose.yml to the target machine
-      copy:
-        src: /home/yenthe/rocketchat/docker-compose.yml
-        dest: /root/rocketchat2/docker-compose.yml
-      become: true
+- name: Copy docker-compose.yml to the target machine
+  copy:
+    src: ./docker-compose.yml
+    dest: /root/rocketchat/docker-compose.yml
+  become: true
 
-    - name: Bring Docker Compose up
-      community.docker.docker_compose:
-        project_src: /root/rocketchat2
-        files:
-          - docker-compose.yml
-      become: true
+- name: Bring Docker Compose up
+  community.docker.docker_compose:
+    project_src: /root/rocketchat
+    files:
+      - docker-compose.yml
+  become: true

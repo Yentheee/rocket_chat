@@ -1,34 +1,42 @@
-    - name: Install required packages
-      package:
-        name: "{{ item }}"
-        state: present
-      loop:
-        - yum-utils
-        - device-mapper-persistent-data
-        - lvm2
+---
+- name: Add yum repository for docker
+  ansible.builtin.template:
+    src: docker-ce.repo.j2
+    dest: /etc/yum.repos.d/docker-ce.repo
+    owner: root
+    group: root
+    mode: "0644"
 
-    - name: Add Docker repository
-      yum_repository:
-        name: docker-ce-stable
-        description: Docker CE Stable - $basearch
-        baseurl: https://download.docker.com/linux/centos/8/$basearch/stable
-        gpgcheck: yes
-        gpgkey: https://download.docker.com/linux/centos/gpg
-        enabled: yes
+- name: Install required packages for docker
+  ansible.builtin.dnf:
+    name: "{{ item }}"
+  loop: "{{ packages }}"
 
-    - name: Install Docker CE
-      package:
-        name: docker-ce
-        state: present
+- name: Enable and start docker service
+  ansible.builtin.systemd:
+    name: docker
+    enabled: true
+    state: started
 
-    - name: Start and enable Docker service
-      service:
-        name: docker
-        state: started
-        enabled: yes
+# docker install from https://github.com/adamvlasak/ansible-rockylinux/tree/master
 
-    - name: Install Docker Compose
-      pip:
-        name: docker-compose
-        executable: /usr/bin/pip3
-        state: present
+- name: Ensure pip is installed
+  ansible.builtin.dnf:
+    name: python3-pip
+    state: present
+
+- name: Install required Python packages
+  ansible.builtin.pip:
+    name:
+      - packaging
+      - requests==2.31.0
+      - docker
+    executable: /usr/bin/pip3
+    state: present
+# from debugging with chatgpt
+
+- name: Install Docker Compose
+  ansible.builtin.pip:
+    name: docker-compose
+    executable: /usr/bin/pip3
+    state: present

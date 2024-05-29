@@ -1,6 +1,6 @@
 ---
-- name: Install Docker and Docker Compose on Rocky Linux
-  hosts: rocky_linux
+- name: install rocket.chat on rocky linux
+  hosts: rocky_linux_nieuw
   become: true
   roles:
     - docker

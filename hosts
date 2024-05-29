@@ -1,2 +1,8 @@
 [rocky_linux]
-91.181.7.205 ansible_user=root ansible_ssh_pass=140102002
+192.168.1.35 ansible_user=root
+
+[rocky_linux_werkend]
+192.168.1.49 ansible_user=root
+
+[rocky_linux_nieuw]
+192.168.1.63 ansible_user=root

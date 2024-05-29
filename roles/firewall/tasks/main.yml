@@ -1,18 +1,17 @@
+- name: Allow SSH (tcp/22) in firewall
+  firewalld:
+    service: ssh
+    permanent: yes
+    state: enabled
 
-    - name: Allow SSH (tcp/22) in firewall
-      firewalld:
-        service: ssh
-        permanent: yes
-        state: enabled
+- name: Allow Rocketchat port in firewall
+  firewalld:
+    port: 3000/tcp 
+    permanent: yes
+    state: enabled
 
-    - name: Allow Rocketchat port in firewall
-      firewalld:
-        port: 3000/tcp   # Replace 3000 with the actual port Rocketchat is using
-        permanent: yes
-        state: enabled
-
-    - name: Block all other incoming traffic and log
-      firewalld:
-        state: disabled
-        permanent: yes
-        rich_rule: "rule family='ipv4' source address='0.0.0.0/0' log prefix='Blocked: ' level='notice' reject"
+- name: Block all other incoming traffic and log
+  firewalld:
+    state: disabled
+    permanent: yes
+    rich_rule: "rule family='ipv4' source address='0.0.0.0/0' log prefix='Blocked: ' level='notice' reject"
