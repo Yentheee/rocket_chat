@@ -6,3 +6,6 @@
 
 [rocky_linux_nieuw]
 192.168.1.63 ansible_user=root
+
+[rocky_linux_semaphore]
+192.168.1.63 ansible_user=root
