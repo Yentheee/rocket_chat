@@ -1,6 +1,6 @@
 ---
 - name: install rocket.chat on rocky linux
-  hosts: rocky_linux_nieuw
+  hosts: rocky_linux_semaphore
   become: true
   roles:
     - docker
