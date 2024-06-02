@@ -5,7 +5,7 @@ Dit is een Ansible-project dat tot doel heeft een chattoepassing te maken met be
 ## Vereisten
 
 - Ansible geïnstalleerd op de beheermachine.
-- SSH-toegang tot de doelmachine met behulp van ssh-keys.
+- SSH-toegang tot de doelmachine met behulp van SSH-keys.
 
 ## Installatie
 
