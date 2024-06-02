@@ -3,6 +3,7 @@
   hosts: rocky_linux
   become: true
   roles:
+    - update
     - docker
     - compose_up
     - firewall

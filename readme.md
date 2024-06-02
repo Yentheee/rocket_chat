@@ -31,4 +31,4 @@ Dit is een Ansible-project dat tot doel heeft een chattoepassing te maken met be
 
 ## Semaphore-integratie
 
-Als je Semaphore wilt gebruiken voor CI/CD, moet je eerst het `hosts`-bestand aanpassen zoals hierboven beschreven. Of je pat de inventory in Semaphore aan naar het juiste ip. Vervolgens kun je Semaphore configureren om het Ansible-playbook uit te voeren als onderdeel van je CI/CD-pijplijn.
+Als je Semaphore wilt gebruiken voor CI/CD, moet je eerst het `hosts`-bestand aanpassen zoals hierboven beschreven. Of je past de inventory in Semaphore aan naar het juiste ip. Zorg er dan wel voor dat de applicatie de juiste inventory gebruikt. Vervolgens kun je Semaphore configureren om het Ansible-playbook uit te voeren als onderdeel van je CI/CD-pipline.
