@@ -1,11 +1,11 @@
 [rocky_linux]
-192.168.1.35 ansible_user=root
+192.168.129.171 ansible_user=root ansible_connection=ssh
 
 [rocky_linux_werkend]
-192.168.1.49 ansible_user=root
+192.168.1.49 ansible_user=root ansible_connection=ssh
 
 [rocky_linux_nieuw]
-192.168.1.63 ansible_user=root
+192.168.1.63 ansible_user=root ansible_connection=ssh
 
 [rocky_linux_semaphore]
 192.168.129.150 ansible_user=root ansible_connection=ssh
