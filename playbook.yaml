@@ -6,4 +6,4 @@
     - update
     - docker
     - compose_up
-    - firewall
+    #- firewall
